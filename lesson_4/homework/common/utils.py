@@ -1,9 +1,9 @@
-from common.variables import *
-from errors import IncorrectDataRecivedError, NonDictInputError
+from messanger.lesson_4.homework.common.variables import *
+from messanger.lesson_4.homework.errors import IncorrectDataRecivedError, NonDictInputError
 import json
 import sys
 sys.path.append('../')
-from decos import log
+from messanger.lesson_4.homework.decos import log
 
 
 # Утилита приёма и декодирования сообщения

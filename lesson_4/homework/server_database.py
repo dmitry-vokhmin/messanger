@@ -40,8 +40,9 @@ class ServerStorage:
             self.sent = 0
             self.accepted = 0
 
-    def __init__(self):
-        self.database_engine = create_engine(SERVER_DATABASE, echo=False)
+    def __init__(self, path):
+        self.database_engine = create_engine(f'sqlite:///{path}', echo=False, pool_recycle=7200,
+                                             connect_args={'check_same_thread': False})
         self.metadata = MetaData()
 
         users_table = Table('Users', self.metadata,
