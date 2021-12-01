@@ -109,4 +109,4 @@ class ClientDatabase:
 
 
 if __name__ == '__main__':
-    test_db = ClientDatabase('test1')
+    test_db = ClientDatabase('test')

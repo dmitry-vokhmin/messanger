@@ -50,17 +50,17 @@ class MainWindow(QMainWindow):
     def initUI(self):
         exit_action_btn = QAction('Выход', self)
         exit_action_btn.triggered.connect(qApp.quit)
-        refresh_btn = QAction('Обновить список', self)
-        config_btn = QAction('Настройки сервера', self)
-        show_history_btn = QAction('История клиентов', self)
+        self.refresh_btn = QAction('Обновить список', self)
+        self.config_btn = QAction('Настройки сервера', self)
+        self.show_history_btn = QAction('История клиентов', self)
 
         self.statusBar()
 
         toolbar = self.addToolBar('ToolBar')
         toolbar.addAction(exit_action_btn)
-        toolbar.addAction(refresh_btn)
-        toolbar.addAction(show_history_btn)
-        toolbar.addAction(config_btn)
+        toolbar.addAction(self.refresh_btn)
+        toolbar.addAction(self.show_history_btn)
+        toolbar.addAction(self.config_btn)
 
         self.setFixedSize(800, 600)
 
@@ -68,9 +68,9 @@ class MainWindow(QMainWindow):
         label.setFixedSize(240, 15)
         label.move(10, 25)
 
-        active_clients_table = QTableView(self)
-        active_clients_table.move(10, 45)
-        active_clients_table.setFixedSize(780, 400)
+        self.active_clients_table = QTableView(self)
+        self.active_clients_table.move(10, 45)
+        self.active_clients_table.setFixedSize(780, 400)
 
         self.show()
 
@@ -89,9 +89,9 @@ class HistoryWindow(QDialog):
         close_button.move(250, 650)
         close_button.clicked.connect(self.close)
 
-        history_table = QTableView(self)
-        history_table.move(10, 10)
-        history_table.setFixedSize(580, 620)
+        self.history_table = QTableView(self)
+        self.history_table.move(10, 10)
+        self.history_table.setFixedSize(580, 620)
 
         self.show()
 
@@ -129,17 +129,17 @@ class ConfigWindow(QDialog):
         db_file_label.move(10, 68)
         db_file_label.setFixedSize(180, 15)
 
-        db_file = QLineEdit(self)
-        db_file.move(200, 66)
-        db_file.setFixedSize(150 , 20)
+        self.db_file = QLineEdit(self)
+        self.db_file.move(200, 66)
+        self.db_file.setFixedSize(150 , 20)
 
         port_label = QLabel('Номер порта для соединений:', self)
         port_label.move(10, 108)
         port_label.setFixedSize(180, 15)
 
-        port = QLineEdit(self)
-        port.move(200, 108)
-        port.setFixedSize(150, 20)
+        self.port = QLineEdit(self)
+        self.port.move(200, 108)
+        self.port.setFixedSize(150, 20)
 
         ip_label = QLabel('С какого IP принимаем соединения:', self)
         ip_label.move(10, 148)
@@ -149,12 +149,12 @@ class ConfigWindow(QDialog):
         ip_label_note.move(10, 168)
         ip_label_note.setFixedSize(500, 30)
 
-        ip = QLineEdit(self)
-        ip.move(200, 148)
-        ip.setFixedSize(150, 20)
+        self.ip = QLineEdit(self)
+        self.ip.move(200, 148)
+        self.ip.setFixedSize(150, 20)
 
-        save_btn = QPushButton('Сохранить', self)
-        save_btn.move(190, 220)
+        self.save_btn = QPushButton('Сохранить', self)
+        self.save_btn.move(190, 220)
 
         close_button = QPushButton('Закрыть', self)
         close_button.move(275, 220)
